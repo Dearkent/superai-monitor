@@ -1,56 +1,56 @@
 {
-  "lastRun": "2026-11-15T07:57:07.326Z",
-  "lastBlock": 15934515,
+  "lastRun": "2026-11-15T16:22:08.758Z",
+  "lastBlock": 16014867,
   "stats": {
-    "blocks": "15934515",
-    "addresses": "25003",
-    "transactions": "1660042"
+    "blocks": "16014867",
+    "addresses": "25017",
+    "transactions": "1665005"
   },
   "usdtSupply": "3124563809309",
   "pbSupply": "38221300749431922881987472",
-  "fecSupply": "135952982004",
+  "fecSupply": "137114367903",
   "tokens": {
     "0x383c65b4f4f74a1c722c65b52dadeaa6c21e8a47": {
       "symbol": "FEC",
       "decimals": "4",
-      "supply": "135952982004",
+      "supply": "137114367903",
       "holders": "11977"
     },
     "0xcd9b3dafc6ba89eac2f8e9ba9774f97cbc0dc6fc": {
       "symbol": "PB",
       "decimals": "18",
       "supply": "38221300749431922881987472",
-      "holders": "11165"
+      "holders": "11171"
     },
     "0x8378c6e49cf01d59e532835c66caf0550edbeef8": {
       "symbol": "USDT",
       "decimals": "6",
       "supply": "3124563809309",
-      "holders": "1220"
+      "holders": "1221"
     },
     "0x031f6a743b14921a4d9b40af076b00a12fca6ab3": {
       "symbol": "WIS",
       "decimals": null,
-      "supply": "46737",
-      "holders": "703"
+      "supply": "46946",
+      "holders": "706"
     },
     "0xa77269f5a649e5def9dd969b995064b146679e94": {
       "symbol": "YTKJ",
       "decimals": "18",
       "supply": "100000000000000000000000000",
-      "holders": "119"
+      "holders": "120"
+    },
+    "0xfec4948923234254efa4d1182d265eca29ed5f84": {
+      "symbol": "YTKJQQT",
+      "decimals": "18",
+      "supply": "10000000000000000000000000000",
+      "holders": "77"
     },
     "0x8c94f07b888bde5890e259a931cc64d0b5c30b66": {
       "symbol": "DOGE",
       "decimals": "18",
       "supply": "210000000000000000000000000000",
       "holders": "62"
-    },
-    "0xfec4948923234254efa4d1182d265eca29ed5f84": {
-      "symbol": "YTKJQQT",
-      "decimals": "18",
-      "supply": "10000000000000000000000000000",
-      "holders": "22"
     },
     "0xab6668b98d7f1b8aafc922e1936b9230d36b1ebf": {
       "symbol": "ADNa",
@@ -62,7 +62,7 @@
       "symbol": "SYT",
       "decimals": "18",
       "supply": "1000199999999000000000000000000",
-      "holders": "6"
+      "holders": "8"
     },
     "0xf2bdfe2ab9bf0ac93b847aa8f5308eacc1e4274f": {
       "symbol": "USDT",
@@ -280,10 +280,10 @@
       "id": "0x0adaaf17b2e06a490fd271ae87b387bce707eae4b81feb2836b89d4c0c92dfd0",
       "t0": "SUP",
       "t1": "USDT",
-      "price": 2.089903826543107,
-      "change24h": 0.015701348671444508,
-      "tvl": 773042.611694,
-      "vol24": 5354.380282124325
+      "price": 2.0923272456141664,
+      "change24h": 0.012147031433257212,
+      "tvl": 773490.685766,
+      "vol24": 4921.343905921134
     },
     "0x8176b5506e5b380b789b1e4124ed089941c015ae077d531c634847de304fb10e": {
       "id": "0x8176b5506e5b380b789b1e4124ed089941c015ae077d531c634847de304fb10e",
@@ -307,26 +307,26 @@
       "id": "0xc7c5f45182324c9800ef0e4fce65b5cbcdb398659e93d57c416baa7ddcb67905",
       "t0": "SUP",
       "t1": "PB",
-      "price": 47.06970992993344,
-      "change24h": 0.012614914818294586,
-      "tvl": 30363.654600064907,
-      "vol24": 391.70363358806753
+      "price": 47.73538699956029,
+      "change24h": 0.01723890292591013,
+      "tvl": 27312.801732511973,
+      "vol24": 395.775623127191
     },
     "0xf283a61507434153579f8837f3a0ac12940df779df71a65919e53a35fda0f60d": {
       "id": "0xf283a61507434153579f8837f3a0ac12940df779df71a65919e53a35fda0f60d",
       "t0": "USDT",
       "t1": "PB",
-      "price": 22.20846035391391,
-      "change24h": 0.0009363073169208582,
-      "tvl": 333950.285656,
-      "vol24": 13928.473945528001
+      "price": 22.172909033952706,
+      "change24h": -0.0038960315406481047,
+      "tvl": 334217.900938,
+      "vol24": 23354.324175666276
     },
     "0x22fa2463dc951ed6995bad09cf2b59ecab2e3ae57be095c7485a5e164fd76238": {
       "id": "0x22fa2463dc951ed6995bad09cf2b59ecab2e3ae57be095c7485a5e164fd76238",
       "t0": "SUP",
       "t1": "YTKJ",
-      "price": 1518.23080281205,
-      "change24h": -0.8853571301674374,
+      "price": 1518.2308028120206,
+      "change24h": -0.9143223280721159,
       "tvl": null,
       "vol24": null
     },
@@ -343,8 +343,8 @@
       "id": "0xa01f4797e300e0d8dbf018d7ac2d9661c7cd40d2d08ebed2167dbf5be5397e26",
       "t0": "SYT",
       "t1": "PB",
-      "price": 2.04459e-13,
-      "change24h": 0,
+      "price": 2.722481679e-9,
+      "change24h": 13314.53846492451,
       "tvl": null,
       "vol24": null
     },
@@ -352,10 +352,10 @@
       "id": "0xd696c2bc405763bcf78a03b7b8f20009f3957fa8e5acb64f0a3cec97dcebd03c",
       "t0": "SUP",
       "t1": "YTKJQQT",
-      "price": 401.83158649577916,
-      "change24h": -0.3093762615521338,
-      "tvl": 469.69181087022304,
-      "vol24": 25.0788459185163
+      "price": 422.5834896798434,
+      "change24h": -0.14323700967948885,
+      "tvl": 458.5451147163673,
+      "vol24": 68.05867129255108
     }
   },
   "watch": {
@@ -433,8 +433,8 @@
     "0xdaeb5dd9019e7bd487a89880cc7b3d2cd5b67ae9"
   ],
   "balances": {
-    "v3Bridge": "1691587870000",
-    "router": "575062121619",
+    "v3Bridge": "1694559880000",
+    "router": "575477329924",
     "pbMinter": "7077438407",
     "oldBridgeAdmin": "0",
     "oldBridge8725": "11452540000",
@@ -476,22 +476,50 @@
   ],
   "native": {
     "userE28": "8937765427820742128",
-    "stakeEOA": "122822300000000000000000",
-    "stakePoolEb83": "571788964058354387738431",
-    "rewardEf6A": "7159977953613551911040",
+    "stakeEOA": "123178300000000000000000",
+    "stakePoolEb83": "569152311674176387738431",
+    "rewardEf6A": "7109272506501051911040",
     "whale1f4e": "5000999683516000000000",
     "pbOtc6581": "3016330101372319781066",
-    "whale883B": "6621917338444361738121",
-    "whale2A26": "2715567904459628843678",
-    "whale0c70": "2922611463836193316376"
+    "whale883B": "6619917295336361738121",
+    "whale2A26": "3275558541872999229054",
+    "whale0c70": "2920111302063193316376"
   },
   "largeTransfers": [
     {
-      "hash": "0xffc645d71168eef689473ff0b5fbc3eb821d988c8d6c92695c29ea6aa7ca8e58",
-      "timestamp": "2026-11-15T04:12:15.000000Z",
-      "value": "9336899716",
+      "hash": "0x150e428a8ff5a2e6a1c915906a4ee63f57e126cc9751f740d22e561b20d9bd75",
+      "timestamp": "2026-11-15T10:27:16.000000Z",
+      "value": "9966834246",
+      "from": "0x767948c6DE761a90a4FC5a1DF1862Eb757eBadAA",
+      "to": "0x893464f9566dd1e245C7553C9dDD09be35d2E221"
+    },
+    {
+      "hash": "0x07bb33ad703f410369c6c3505ee18c9cfd8fdf30902946ef8ec06c5b16070a9e",
+      "timestamp": "2026-11-15T09:10:42.000000Z",
+      "value": "6536953895",
+      "from": "0x893464f9566dd1e245C7553C9dDD09be35d2E221",
+      "to": "0x767948c6DE761a90a4FC5a1DF1862Eb757eBadAA"
+    },
+    {
+      "hash": "0x60c849069401a6f84b38f721acd837a53e15024b13befced03bc5837fee4e039",
+      "timestamp": "2026-11-15T09:10:39.000000Z",
+      "value": "10993790100",
       "from": "0x15BfbCa745f1147BE5ff269F0b5Bd9876ac403A3",
-      "to": "0x088dCe717D3fa7767bd72B1b77229A35C24c6791"
+      "to": "0x767948c6DE761a90a4FC5a1DF1862Eb757eBadAA"
+    },
+    {
+      "hash": "0x17d0c1f19d940aae3ca67072a276b6719a05d5a2694ac55f2de2d046093c3e97",
+      "timestamp": "2026-11-15T09:10:30.000000Z",
+      "value": "5839773091",
+      "from": "0x134559D9133Ba3E1a4a34C493221bb591eC101B5",
+      "to": "0x6cf5443d1A32d09c404cbA2a93da2ef2d57FF09C"
+    },
+    {
+      "hash": "0x5ccb7148c5f3afdb40e594c288de75fa8ab4ef9deda20a6c06d85c05bd62ae6f",
+      "timestamp": "2026-11-15T09:10:16.000000Z",
+      "value": "5451021008",
+      "from": "0xd5C3be2f9bD474785baE5Fa581513C7b265d51Eb",
+      "to": "0x134559D9133Ba3E1a4a34C493221bb591eC101B5"
     }
   ]
 }
