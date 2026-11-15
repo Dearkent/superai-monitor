@@ -1,0 +1,1 @@
+window.SUPERAI_CONFIG = { vapidPublicKey: "BAJGyJQNP1q4jVmjls_Vjmac6bU5UWyAKZiXgpmE7VC6rQvZdlV1VXIK7XTgVON5ws7SavBF3J_k22QHha_5r-U" };
