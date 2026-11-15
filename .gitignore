@@ -1,0 +1,8 @@
+node_modules/
+.env
+.npm-cache/
+.npm-logs/
+push/vapid.json
+push/subscriptions.json
+push/history.json
+*.log
