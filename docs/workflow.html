@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050b12">
+<title>SuperAI 工作路径</title>
+<style>
+  :root { color-scheme: dark; --cyan:#2ceedf; --blue:#38bdf8; --dim:#5f8192; --panel:#08131d; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:radial-gradient(circle at 50% 40%,#0a1c2a 0,#050b12 70%); color:#e6f7ff;
+         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif; min-height:100vh; }
+  .wrap { max-width:900px; margin:0 auto; padding:18px 16px 40px; }
+  .top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px; }
+  .top a { color:#9fe8ff; text-decoration:none; font-size:13px; border:1px solid #1d3d4f; padding:7px 10px; border-radius:10px; background:#0a1a26; }
+  h1 { font-size:20px; margin:10px 0 2px; letter-spacing:.5px; }
+  .sub { color:#6f93a5; font-size:12px; margin-bottom:8px; }
+  .badge { display:inline-block; padding:3px 8px; border-radius:999px; background:#0e2b3a; color:var(--cyan); font-size:11px; }
+  .stage { position:relative; margin-top:6px; }
+  canvas { display:block; width:100%; height:min(62vh,520px); border-radius:20px; background:#050b12; border:1px solid #123043; box-shadow:0 20px 60px rgba(0,0,0,.5); }
+  .legend { display:flex; flex-wrap:wrap; gap:10px; margin:12px 0; font-size:11px; color:#6f93a5; }
+  .legend i { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:5px; }
+  .panel { background:linear-gradient(160deg,#0b1c29,#08131d); border:1px solid #164153; border-radius:16px; padding:16px; margin-top:10px; }
+  .panel h2 { font-size:15px; margin:0 0 6px; color:#cfefff; }
+  .panel p { font-size:12px; line-height:1.7; color:#8fb3c4; margin:0; white-space:pre-wrap; }
+  .panel .meta { font-size:11px; color:#5f8192; margin-top:8px; }
+  .panel .status { font-size:11px; color:var(--cyan); margin-top:6px; }
+  .foot { margin-top:16px; font-size:10px; color:#456475; line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="./">← 返回通知</a>
+    <span class="badge">SUPER AI CHAIN</span>
+  </div>
+  <h1>工作路径</h1>
+  <div class="sub">GitHub Actions → monitor → 链 → diff → Web Push → 手机</div>
+
+  <div class="stage">
+    <canvas id="c"></canvas>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:#2ceedf"></i>运行中</span>
+    <span><i style="background:#fbbf24"></i>待配置</span>
+    <span><i style="background:#64748b"></i>未启用</span>
+    <span>点节点看详情</span>
+  </div>
+
+  <div class="panel" id="panel">
+    <h2 id="p-title">SuperAI Monitor</h2>
+    <p id="p-desc">选择路径上的节点查看它在整个链路里的作用。</p>
+    <div class="status" id="p-status"></div>
+    <div class="meta" id="p-meta"></div>
+  </div>
+
+  <div class="foot">
+    视觉灵感：HaloFlux · Ryder191/haloflux（非商业使用）<br>
+    数据流：GitHub Actions cron → monitor.js / gpt-monitor.js → SuperAI Chain → state diff → Web Push (VAPID) → Android PWA
+  </div>
+</div>
+<script>
+const NODES = [
+  { id:'actions', label:'GitHub Actions', sub:'cron */5', x:0.50, y:0.10, r:26, color:'#2ceedf', status:'运行中',
+    desc:'云端定时任务。每 5 分钟跑一次链上 monitor，每 15 分钟跑一次 GPT monitor；Mac 关机也不影响。',
+    meta:'workflow: monitor.yml / gpt.yml' },
+  { id:'monitor', label:'monitor.js', sub:'扫链 & 对比', x:0.82, y:0.30, r:24, color:'#2ceedf', status:'运行中',
+    desc:'读取 SuperAI Chain 的 RPC、Blockscout、UswapV5 API；检测新代币、新池、mint、owner、持有人和余额变化。',
+    meta:'watch: SIP / BNB / sSOL / sTRX / USDC' },
+  { id:'chain', label:'SuperAI Chain', sub:'chainId 19998', x:0.84, y:0.60, r:26, color:'#38bdf8', status:'运行中',
+    desc:'RPC + scan + swap API。当前 5 个 watch 代币都是 supply=0、owner=0xd61e…、无池子。',
+    meta:'tokens 35 · pools 15 · SIP supply 0' },
+  { id:'diff', label:'state diff', sub:'基线对比', x:0.60, y:0.86, r:24, color:'#2ceedf', status:'运行中',
+    desc:'把本轮快照和 state.json 对比；只把真正变化的部分变成 alert，避免重复通知。',
+    meta:'state.json / gpt-state.json' },
+  { id:'push', label:'Web Push', sub:'VAPID → FCM', x:0.34, y:0.86, r:24, color:'#2ceedf', status:'运行中',
+    desc:'GitHub Actions 直接调用 Web Push 协议，把 alert 发给手机的 push subscription；不需要常驻服务器。',
+    meta:'PUSH_SUBSCRIPTION · VAPID keys' },
+  { id:'phone', label:'Android PWA', sub:'接收端', x:0.13, y:0.60, r:24, color:'#fbbf24', status:'待订阅',
+    desc:'手机只负责接收和显示，不扫链。在 Pages 打开 PWA、开启通知、复制订阅 JSON 填进 Secret 后变绿。',
+    meta:'subscriptions: 0' },
+  { id:'pages', label:'GitHub Pages', sub:'PWA 静态站', x:0.17, y:0.30, r:22, color:'#2ceedf', status:'运行中',
+    desc:'托管 PWA 静态文件：通知页、工作路径、sw.js、manifest、图标。',
+    meta:'/superai-monitor/' }
+];
+const LINKS = [
+  ['actions','monitor'], ['monitor','chain'], ['chain','diff'], ['diff','push'],
+  ['push','phone'], ['phone','pages'], ['pages','actions']
+];
+
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+let W = 0, H = 0, DPR = 1, selected = null, particles = [];
+
+function resize() {
+  const rect = canvas.getBoundingClientRect();
+  DPR = Math.min(window.devicePixelRatio || 1, 2);
+  W = rect.width; H = rect.height;
+  canvas.width = Math.round(W * DPR);
+  canvas.height = Math.round(H * DPR);
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  particles = LINKS.map((l, i) => ({ i, t: Math.random() }));
+}
+window.addEventListener('resize', resize);
+
+function pos(n) { return { x: n.x * W, y: n.y * H }; }
+function node(id) { return NODES.find(n => n.id === id); }
+
+function drawBackground(t) {
+  ctx.clearRect(0, 0, W, H);
+  const g = ctx.createRadialGradient(W * 0.5, H * 0.48, 10, W * 0.5, H * 0.48, Math.max(W, H) * 0.62);
+  g.addColorStop(0, 'rgba(20,70,90,0.35)');
+  g.addColorStop(1, 'rgba(3,8,14,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+
+  const cx = W * 0.5, cy = H * 0.48;
+  for (let r = 0; r < 4; r++) {
+    const rad = Math.min(W, H) * (0.13 + r * 0.055);
+    ctx.beginPath();
+    ctx.arc(cx, cy, rad, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(44,238,223,${0.05 + r * 0.02})`;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+}
+
+function drawLinks(t) {
+  for (const [a, b] of LINKS) {
+    const A = pos(node(a)), B = pos(node(b));
+    const mx = (A.x + B.x) / 2 + (B.y - A.y) * 0.08;
+    const my = (A.y + B.y) / 2 - (B.x - A.x) * 0.08;
+    ctx.beginPath();
+    ctx.moveTo(A.x, A.y);
+    ctx.quadraticCurveTo(mx, my, B.x, B.y);
+    ctx.strokeStyle = 'rgba(44,238,223,0.18)';
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+  }
+}
+
+function drawParticles(dt) {
+  for (const p of particles) {
+    p.t = (p.t + dt * 0.06) % 1;
+    const [a, b] = LINKS[p.i];
+    const A = pos(node(a)), B = pos(node(b));
+    const mx = (A.x + B.x) / 2 + (B.y - A.y) * 0.08;
+    const my = (A.y + B.y) / 2 - (B.x - A.x) * 0.08;
+    const u = 1 - p.t;
+    const x = u*u*A.x + 2*u*p.t*mx + p.t*p.t*B.x;
+    const y = u*u*A.y + 2*u*p.t*my + p.t*p.t*B.y;
+    ctx.beginPath();
+    ctx.arc(x, y, 2.2, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(44,238,223,0.9)';
+    ctx.shadowColor = '#2ceedf'; ctx.shadowBlur = 10;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  }
+}
+
+function roundRect(x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+function drawNodes(t) {
+  for (const n of NODES) {
+    const { x, y } = pos(n);
+    const pulse = 1 + Math.sin(t * 2 + n.x * 10) * 0.05;
+    ctx.beginPath();
+    ctx.arc(x, y, n.r * pulse, 0, Math.PI * 2);
+    ctx.fillStyle = n.status === '待订阅' ? 'rgba(251,191,36,0.12)' : 'rgba(44,238,223,0.10)';
+    ctx.fill();
+    ctx.strokeStyle = n.color;
+    ctx.globalAlpha = selected === n.id ? 1 : 0.75;
+    ctx.lineWidth = selected === n.id ? 2.5 : 1.2;
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+
+    ctx.beginPath();
+    ctx.arc(x, y, 3, 0, Math.PI * 2);
+    ctx.fillStyle = n.color;
+    ctx.fill();
+
+    ctx.font = '600 11px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#dff7ff';
+    ctx.fillText(n.label, x, y + n.r + 15);
+    ctx.font = '10px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif';
+    ctx.fillStyle = n.status === '待订阅' ? '#fbbf24' : '#5f8192';
+    ctx.fillText(n.sub, x, y + n.r + 28);
+  }
+}
+
+function drawCenter(t) {
+  const cx = W * 0.5, cy = H * 0.48;
+  ctx.font = '700 13px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillStyle = 'rgba(230,247,255,0.9)';
+  ctx.fillText('SuperAI', cx, cy - 4);
+  ctx.font = '10px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif';
+  ctx.fillStyle = 'rgba(95,129,146,0.9)';
+  ctx.fillText('work path', cx, cy + 10);
+}
+
+let last = 0;
+function loop(ts) {
+  const dt = Math.min((ts - last) / 1000, 0.05);
+  last = ts;
+  const t = ts / 1000;
+  drawBackground(t);
+  drawLinks(t);
+  drawParticles(dt);
+  drawCenter(t);
+  drawNodes(t);
+  requestAnimationFrame(loop);
+}
+
+canvas.addEventListener('click', e => {
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left, y = e.clientY - rect.top;
+  let hit = null;
+  for (const n of NODES) {
+    const p = pos(n);
+    if (Math.hypot(p.x - x, p.y - y) < n.r + 8) { hit = n; break; }
+  }
+  if (!hit) return;
+  selected = hit.id;
+  document.getElementById('p-title').textContent = hit.label;
+  document.getElementById('p-desc').textContent = hit.desc;
+  document.getElementById('p-status').textContent = '状态：' + hit.status;
+  document.getElementById('p-meta').textContent = hit.meta;
+});
+
+resize();
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
