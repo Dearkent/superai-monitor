@@ -1,44 +1,44 @@
 {
-  "lastRun": "2026-11-25T02:20:02.640Z",
-  "lastBlock": 17811954,
+  "lastRun": "2026-11-25T11:29:46.318Z",
+  "lastBlock": 17892365,
   "stats": {
-    "blocks": "17811954",
-    "addresses": "25821",
-    "transactions": "1827259"
+    "blocks": "17892365",
+    "addresses": "25893",
+    "transactions": "1856992"
   },
   "usdtSupply": "3124563809309",
   "pbSupply": "38221300749431922881987472",
-  "fecSupply": "137800078973",
+  "fecSupply": "137826662771",
   "tokens": {
     "0x383c65b4f4f74a1c722c65b52dadeaa6c21e8a47": {
       "symbol": "FEC",
       "decimals": "4",
-      "supply": "137800078973",
-      "holders": "12006"
+      "supply": "137826662771",
+      "holders": "12011"
     },
     "0xcd9b3dafc6ba89eac2f8e9ba9774f97cbc0dc6fc": {
       "symbol": "PB",
       "decimals": "18",
       "supply": "38221300749431922881987472",
-      "holders": "11241"
+      "holders": "11240"
     },
     "0x454da3b0ce6798ca80c3742d119c2e52b1e37a1e": {
       "symbol": "SIP",
       "decimals": "8",
-      "supply": "125280083921999773",
-      "holders": "3168"
+      "supply": "127898793575999756",
+      "holders": "3328"
     },
     "0x8378c6e49cf01d59e532835c66caf0550edbeef8": {
       "symbol": "USDT",
       "decimals": "6",
       "supply": "3124563809309",
-      "holders": "1313"
+      "holders": "1315"
     },
     "0x031f6a743b14921a4d9b40af076b00a12fca6ab3": {
       "symbol": "WIS",
       "decimals": null,
-      "supply": "64031",
-      "holders": "892"
+      "supply": "64483",
+      "holders": "902"
     },
     "0xa77269f5a649e5def9dd969b995064b146679e94": {
       "symbol": "YTKJ",
@@ -64,16 +64,16 @@
       "supply": "1000000100000000000000000000",
       "holders": "34"
     },
-    "0xab6668b98d7f1b8aafc922e1936b9230d36b1ebf": {
-      "symbol": "ADNa",
-      "decimals": "0",
-      "supply": "80",
-      "holders": "9"
-    },
     "0x20124aabc024cf23666a0446c227c84cc37000a8": {
       "symbol": "SYT",
       "decimals": "18",
       "supply": "1000199999999000000000000000000",
+      "holders": "10"
+    },
+    "0xab6668b98d7f1b8aafc922e1936b9230d36b1ebf": {
+      "symbol": "ADNa",
+      "decimals": "0",
+      "supply": "80",
       "holders": "9"
     },
     "0xf2bdfe2ab9bf0ac93b847aa8f5308eacc1e4274f": {
@@ -298,10 +298,10 @@
       "id": "0x0adaaf17b2e06a490fd271ae87b387bce707eae4b81feb2836b89d4c0c92dfd0",
       "t0": "SUP",
       "t1": "USDT",
-      "price": 2.1834390773567205,
-      "change24h": -0.010798438374642151,
-      "tvl": 789933.7419699999,
-      "vol24": 5321.222824651109
+      "price": 2.1493176050745655,
+      "change24h": -0.020090008542210023,
+      "tvl": 783737.1327879999,
+      "vol24": 8538.470497804657
     },
     "0x8176b5506e5b380b789b1e4124ed089941c015ae077d531c634847de304fb10e": {
       "id": "0x8176b5506e5b380b789b1e4124ed089941c015ae077d531c634847de304fb10e",
@@ -325,19 +325,19 @@
       "id": "0xc7c5f45182324c9800ef0e4fce65b5cbcdb398659e93d57c416baa7ddcb67905",
       "t0": "SUP",
       "t1": "PB",
-      "price": 49.73997964299878,
-      "change24h": 0.0116535228615714,
-      "tvl": 34052.96283916865,
-      "vol24": 140.63496164749594
+      "price": 46.308442568693785,
+      "change24h": -0.06478583083160437,
+      "tvl": 33970.85224697621,
+      "vol24": 687.1861176804638
     },
     "0xf283a61507434153579f8837f3a0ac12940df779df71a65919e53a35fda0f60d": {
       "id": "0xf283a61507434153579f8837f3a0ac12940df779df71a65919e53a35fda0f60d",
       "t0": "USDT",
       "t1": "PB",
-      "price": 22.156031785112777,
-      "change24h": 0.004211100429518713,
-      "tvl": 319635.122468,
-      "vol24": 5236.8617513645295
+      "price": 21.912680364062815,
+      "change24h": -0.01777315716531566,
+      "tvl": 312809.355168,
+      "vol24": 8461.444545511928
     },
     "0x22fa2463dc951ed6995bad09cf2b59ecab2e3ae57be095c7485a5e164fd76238": {
       "id": "0x22fa2463dc951ed6995bad09cf2b59ecab2e3ae57be095c7485a5e164fd76238",
@@ -371,9 +371,9 @@
       "t0": "SUP",
       "t1": "YTKJQQT",
       "price": 1236.5979235389918,
-      "change24h": 0.201482629238529,
-      "tvl": 1991.8199973183507,
-      "vol24": 88.28411546689262
+      "change24h": 0,
+      "tvl": 1960.6930327355713,
+      "vol24": 0
     },
     "0x89de2c4b0e2c1ad0398c2248a54320c7e284de835443edf0538088cd7f0eb965": {
       "id": "0x89de2c4b0e2c1ad0398c2248a54320c7e284de835443edf0538088cd7f0eb965",
@@ -390,8 +390,8 @@
       "address": "0x454da3B0Ce6798Ca80C3742D119C2e52b1e37A1E",
       "name": "SIP",
       "decimals": "8",
-      "supply": "125280083921999773",
-      "holders": "3168",
+      "supply": "127898793575999756",
+      "holders": "3328",
       "owner": "0xd61e8cb21b25854b97e24d691c0c2978cb0a8df1",
       "pool": null
     },
@@ -460,8 +460,8 @@
     "0xdaeb5dd9019e7bd487a89880cc7b3d2cd5b67ae9"
   ],
   "balances": {
-    "v3Bridge": "1772025360000",
-    "router": "576891833565",
+    "v3Bridge": "1772124800000",
+    "router": "569819320670",
     "pbMinter": "7077438407",
     "oldBridgeAdmin": "0",
     "oldBridge8725": "11452540000",
@@ -503,29 +503,22 @@
   ],
   "native": {
     "userE28": "224602107426342070043",
-    "stakeEOA": "136768300000000000000000",
-    "stakePoolEb83": "537479231909161762738292",
-    "rewardEf6A": "5214194080149051911040",
+    "stakeEOA": "137318300000000000000000",
+    "stakePoolEb83": "535499493295117762738288",
+    "rewardEf6A": "5010888658864551911040",
     "whale1f4e": "5000999683516000000000",
     "pbOtc6581": "3016330101372319781066",
-    "whale883B": "6638150886270361738121",
+    "whale883B": "6640268502320361738121",
     "whale2A26": "3369818552080603117841",
-    "whale0c70": "2915711011311193316376"
+    "whale0c70": "2915710970031193316376"
   },
   "largeTransfers": [
     {
-      "hash": "0x348b51e574c1f33afd21bd9817be2e17e223423358b7834df2733b2907adfc30",
-      "timestamp": "2026-11-25T01:06:06.000000Z",
-      "value": "10000000000",
-      "from": "0x4C36189f9A42c6aB4dfEC3859D1183002d1abCeD",
-      "to": "0x6271B38B665a52b0BDE517DfF55f6603636Ef790"
-    },
-    {
-      "hash": "0xd4957245224a2a12e9f0e97908a35706fe6c110f4fac657779a15ebeb9a2bd27",
-      "timestamp": "2026-11-25T00:00:16.000000Z",
-      "value": "7613668667",
-      "from": "0x2fb1051a6D7F25DB8F830F0026eF30B82918e870",
-      "to": "0xd5C3be2f9bD474785baE5Fa581513C7b265d51Eb"
+      "hash": "0xb192b4f837c4b4593af3d039ce16365a4fa9429f32fa6c86d5e54fb3f48da68a",
+      "timestamp": "2026-11-25T07:48:15.000000Z",
+      "value": "5245245528",
+      "from": "0xd5C3be2f9bD474785baE5Fa581513C7b265d51Eb",
+      "to": "0x0f32F51c27CDDDdEFa78Ae75269D1103621384A6"
     }
   ]
 }
